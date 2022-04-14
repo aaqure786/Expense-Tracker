@@ -5,11 +5,11 @@ import {GlobalContext} from '../Context/Global'
 export default function IncomeExpense() {
   const {transaction} = useContext(GlobalContext);
   const amount = transaction.map(transaction => transaction.amount)
-  const income = Number(amount.filter(item => item > 0)
+  const income = (amount.filter(item => item > 0)
   .reduce((acc,item) => (acc +=item), 0)).toFixed(2);
 
 
-  const expense = Number(amount.filter(item => item < 0)
+  const expense = (amount.filter(item => item < 0)
   .reduce((acc,item) => (acc +=item), 0)*-1).toFixed(2);
 
   
